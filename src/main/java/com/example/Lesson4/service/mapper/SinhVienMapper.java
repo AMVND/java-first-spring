@@ -24,11 +24,11 @@ public class SinhVienMapper implements EntityMapper<SinhVienDTO, SinhVien>{
     public SinhVien toEntity(SinhVienDTO sinhVienDTO) {
         SinhVien sinhVien = new SinhVien();
         sinhVien.setId(sinhVienDTO.getId());
-        sinhVien.setHoSv(sinhVien.getHoSv());
-        sinhVien.setTenSv(sinhVien.getTenSv());
-        sinhVien.setPhai(sinhVien.getPhai());
-        sinhVien.setNgaySinh(sinhVien.getNgaySinh());
-        sinhVien.setNoiSinh(sinhVien.getNoiSinh());
+        sinhVien.setHoSv(sinhVienDTO.getHoSv());
+        sinhVien.setTenSv(sinhVienDTO.getTenSv());
+        sinhVien.setPhai(sinhVienDTO.getPhai());
+        sinhVien.setNgaySinh(sinhVienDTO.getNgaySinh());
+        sinhVien.setNoiSinh(sinhVienDTO.getNoiSinh());
         return sinhVien;
     }
 
