@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 public interface SinhVienInfo {
 
+
     String getHoSv();
 
     LocalDate getNgaySinh();

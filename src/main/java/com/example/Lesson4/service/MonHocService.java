@@ -1,7 +1,13 @@
 package com.example.Lesson4.service;
 
 import com.example.Lesson4.domain.MonHoc;
+import com.example.Lesson4.projection.MonHocInfo;
+import com.example.Lesson4.projection.SVDiemInfo;
+import com.example.Lesson4.projection.SinhVienInfo;
+import com.example.Lesson4.respository.DiemTBRepository;
 import com.example.Lesson4.respository.MonHocRepository;
+import com.example.Lesson4.respository.SVDiemRepository;
+import com.example.Lesson4.respository.SinhVienRepository;
 import com.example.Lesson4.service.dto.MonHocDTO;
 import com.example.Lesson4.service.mapper.MonHocMapper;
 import lombok.RequiredArgsConstructor;
@@ -16,8 +22,9 @@ import java.util.Optional;
 @Transactional
 public class MonHocService {
     private final MonHocRepository monHocRepository;
-
+    private final DiemTBRepository diemTBRepository;
     private final MonHocMapper monHocMapper;
+    private final SVDiemRepository svDiemRepository;
 
     public MonHocDTO findByName(String name) {
         MonHoc monHoc = monHocRepository.findByName(name);
@@ -25,6 +32,15 @@ public class MonHocService {
         return dto;
     }
 
+    public List<SVDiemInfo> sinhVienInfoList(Long id){
+        List<SVDiemInfo> sinhVienInfos = svDiemRepository.findDiemByMonhoc(id);
+        return sinhVienInfos;
+    }
+
+    public List<MonHocInfo> diemTB(Long id){
+        List<MonHocInfo> monHocInfos = diemTBRepository.DiemTB(id);
+        return monHocInfos;
+    }
     public MonHocDTO findById(String id) {
         Optional<MonHoc> optionalMonHoc = monHocRepository.findById(id);
         if (optionalMonHoc.isPresent()) {

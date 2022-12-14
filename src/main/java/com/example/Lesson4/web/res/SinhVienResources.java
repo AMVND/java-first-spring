@@ -18,20 +18,21 @@ public class SinhVienResources {
     private  final SinhVienService sinhVienService;
 
     @GetMapping("")
-    public List<SinhVienInfo> getSinhVienInfoList() {
-        Long id=1l;
+    public List<SinhVienInfo> getSinhVienInfoList(@RequestParam("id") String id) {
         return sinhVienService.sinhVienInfoList(id);
     }
 
-    @PostMapping("/create")
-    public void create(@RequestBody SinhVienDTO sinhVienDTO) {
-        sinhVienService.create(sinhVienDTO);
-    }
 
-    @PutMapping("/{id}")
-    public void update(@RequestBody SinhVienDTO sinhVienDTO, @PathVariable String id) {
-        sinhVienService.update(id, sinhVienDTO);
-    }
+
+//    @PostMapping("/create")
+//    public void create(@RequestBody SinhVienDTO sinhVienDTO) {
+//        sinhVienService.create(sinhVienDTO);
+//    }
+//
+//    @PutMapping("/{id}")
+//    public void update(@RequestBody SinhVienDTO sinhVienDTO, @PathVariable String id) {
+//        sinhVienService.update(id, sinhVienDTO);
+//    }
 
     @DeleteMapping("/{name}")
     public void delete(@RequestParam("name") String name ) {

@@ -1,5 +1,8 @@
 package com.example.Lesson4.web.res;
 
+import com.example.Lesson4.projection.MonHocInfo;
+import com.example.Lesson4.projection.SVDiemInfo;
+import com.example.Lesson4.projection.SinhVienInfo;
 import com.example.Lesson4.service.KhoaService;
 import com.example.Lesson4.service.MonHocService;
 import com.example.Lesson4.service.dto.KhoaDTO;
@@ -16,10 +19,24 @@ import java.util.List;
 public class MonHocResources {
     private final MonHocService monHocService;
 
+
     @GetMapping("")
     MonHocDTO findByName(@RequestParam("name") String name) {
         MonHocDTO dto = monHocService.findByName(name);
         return dto;
+    }
+
+    @GetMapping("/ketqua")
+    public List<SVDiemInfo> getSinhVienInfoList(@RequestParam("id") Long id) {
+
+        return monHocService.sinhVienInfoList(id);
+    }
+
+
+    @GetMapping("/diemtb")
+    public List<MonHocInfo> getDiemTB(@RequestParam("id") Long id) {
+
+        return monHocService.diemTB(id);
     }
 
     @GetMapping("/{id}")
